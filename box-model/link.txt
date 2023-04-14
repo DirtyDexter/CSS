@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/51285308/how-do-min-content-and-max-content-work
+
+https://web.dev/learn/css/box-model/
+
+https://andy-bell.co.uk/a-modern-css-reset/

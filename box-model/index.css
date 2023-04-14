@@ -1,0 +1,17 @@
+p {
+  width: 100px;
+  height: 50px;
+  padding: 20px;
+  border: 1px solid;
+}
+
+
+p.p1 {
+  width: min-content; /* take width of longest word */
+  height: min-content;
+}
+
+p.p2 {
+  width: max-content; /*  take available longest width by combining all words */
+  height: max-content;
+}
