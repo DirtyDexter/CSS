@@ -1,0 +1,4 @@
+https://web.dev/learn/css/inheritance/
+
+https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/
+

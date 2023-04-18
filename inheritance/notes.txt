@@ -1,0 +1,98 @@
+===================================================================================================================================
+
+The inherit keyword #
+You can make any property inherit its parent's computed value with the inherit keyword. 
+A useful way to use this keyword is to create exceptions.
+
+
+strong {
+  font-weight: 900;
+}
+This CSS snippet sets all <strong> elements to have a font-weight of 900, instead of the default bold value, 
+which would be the equivalent of font-weight: 700.
+
+
+.my-component {
+  font-weight: 500;
+}
+The .my-component class sets font-weight to 500 instead. 
+
+
+
+To make the <strong> elements inside .my-component also font-weight: 500 add:
+.my-component strong {
+  font-weight: inherit;
+}
+
+Now, the <strong> elements inside .my-component will have a font-weight of 500.
+
+You could explicitly set this value, but if you use inherit and the CSS of .my-component changes in the future, you can guarantee that your <strong> will automatically stay up to date with it.
+
+
+===========================================================================================================================
+
+The initial keyword #
+Inheritance can cause problems with your elements and initial provides you with a powerful reset option.
+
+You learned earlier that every property has a default value in CSS. The initial keyword sets a property back to that initial, default value.
+
+
+aside strong {
+  font-weight: initial;
+}
+This snippet will remove the bold weight from all <strong> elements inside an <aside> element and instead, make them normal weight, which is the initial value.
+
+==============================================================================================================================
+
+The unset keyword #
+The unset property behaves differently if a property is inheritable or not.
+If a property is inheritable, the unset keyword will be the same as inherit.
+If the property is not inheritable, the unset keyword is equal to initial.
+
+Remembering which CSS properties are inheritable can be hard, unset can be helpful in that context.
+For example, color is inheritable, but margin isn't, so you can write this:
+
+
+/* Global color styles for paragraph in authored CSS */
+p {
+  margin-top: 2em;
+  color: goldenrod;
+}
+
+/* The p needs to be reset in asides, so you can use unset */
+aside p {
+  margin: unset;
+  color: unset;
+}
+
+Now, the margin is removed and color reverts back to being the inherited computed value.
+
+
+You can use the unset value with the all property, too. 
+Going back to the above example, what happens if the global p styles get an additional few properties? 
+Only the rule that was set for margin and color will apply.
+
+/* Global color styles for paragraph in authored CSS */
+p {
+	margin-top: 2em;
+	color: goldenrod;
+	padding: 2em;
+	border: 1px solid;
+}
+
+/* Not all properties are accounted for anymore */
+aside p {
+	margin: unset;
+	color: unset;
+}
+
+
+
+If you change the aside p rule to all: unset instead, it doesn't matter what global styles are applied to p in the future, they will always be unset.
+
+aside p {
+	margin: unset;
+	color: unset;
+	all: unset;
+}
+
