@@ -1,0 +1,90 @@
+/*  case sensitive */
+
+[data-type='primary' s] {
+  color: red;
+}
+
+/*  case insensitive */
+
+[data-type='primary' i] {
+  color: blue;
+}
+
+/* A href that contains "example.com" */
+[href*='example.com'] {
+  color: red;
+}
+
+/* A href that starts with https */
+[href^='https'] {
+  color: green;
+}
+
+/* A href that ends with .com */
+[href$='.com'] {
+  color: blue;
+}
+
+/* ================= Pseudo class ==================== */
+
+/* Our link is hovered */
+a:hover {
+  outline: 1px dotted green;
+}
+
+/* Sets all even paragraphs to have a different background */
+p:nth-child(even) {
+  background: floralwhite;
+}
+
+
+/* ================= Pseudo element ================= */
+
+.my-element::before {
+  content: 'Prefix - ';
+}
+
+/* Your list will now either have red dots, or red numbers */
+li::marker {
+  color: red;
+}
+
+::selection {
+  background: black;
+  color: white;
+}
+
+/*  ======= Descendant combinator ====== */
+
+p strong {
+  color: blue;
+}
+
+/*  ======= Next sibling combinator ====== */
+
+.top * + * {
+  margin-top: 1.5em;
+}
+
+/*  ======= Subsequent- sibling combinator  ====== */
+/* 
+  A subsequent combinator is very similar to a next sibling selector.
+  Instead of a + character however, use a ~ character.
+  How this differs is that an element just has to follow another element with the same parent, 
+  rather than being the next element with the same parent.
+*/
+
+:checked ~ .toggle__decor {
+  background: rebeccapurple;
+}
+
+
+/*  ======= Child combinator  ====== */
+/*
+  A child combinator (also known as direct descendant) allows you more control over the recursion that comes with combinator selectors. 
+  By using the > character, you limit the combinator selector to apply only to direct children.
+*/
+.top > * + * {
+  position: relative;
+}
+

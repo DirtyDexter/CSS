@@ -1,0 +1,5 @@
+https://flukeout.github.io/#
+
+https://web.dev/learn/css/selectors/
+
+https://kittygiraudel.github.io/selectors-explained/
