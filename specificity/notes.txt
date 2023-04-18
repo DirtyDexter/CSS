@@ -1,0 +1,138 @@
+
+1- Universal selector #
+A universal selector (*) has no specificity and gets 0 points. This means that any rule with 1 or more points will override it
+
+
+
+2- Element or pseudo-element selector #
+An element (type) or pseudo-element selector gets 1 point of specificity .
+
+
+3- Class, pseudo-class, or attribute selector #
+A class, pseudo-class or attribute selector gets 10 points of specificity.
+
+
+
+The :not() pseudo-class itself adds nothing to the specificity calculation.
+However, the selectors passed in as arguments do get added to the specificity calculation.
+
+
+div:not(.my-class) {
+  color: red;
+}
+
+This sample would have 11 points of specificity because it has one type selector (div) and one class inside the :not().
+
+
+4- ID selector #
+An ID selector gets 100 points of specificity, as long as you use an ID selector (#myID) and not an attribute selector ([id="myID"]).
+
+
+
+5- Inline style attribute #
+CSS applied directly to the style attribute of the HTML element, gets a specificity score of 1,000 points.
+This means that in order to override it in CSS, you have to write an extremely specific selector.
+
+
+6- !important rule #
+Lastly, an !important at the end of a CSS value gets a specificity score of 10,000 points.
+This is the highest specificity that one individual item can get.
+
+An !important rule is applied to a CSS property, so everything in the overall rule (selector and properties) does not get the same specificity score.
+
+.my-class {
+  color: red !important; /* 10,000 points */
+  background: white; /* 10 points */
+}
+
+
+===========================================================================================================================
+
+
+The left group is id selectors. The second group is class, attribute, and pseudo-class selectors. 
+The final group is element and pseudo-element selectors.
+
+
+For reference, the following selector is 0-4-1:
+
+
+a.my-class.another-class[href]:hover {
+  color: lightgrey;
+}
+
+=========================================================================================================================================
+
+
+p {
+  /* 0-0-1 */
+}
+:is(p) {
+  /* 0-0-1 */
+}
+
+h2:nth-last-of-type(n + 2) {
+  /* 0-1-1 */
+}
+h2:has(~ h2) {
+  /* 0-0-2 */
+}
+
+div.outer p {
+  /* 0-1-2 */
+}
+div:not(.inner) p {
+  /* 0-1-2 */
+}
+
+
+:is(p, #fakeId) {
+  /* 1-0-0 */
+}
+h1:has(+ h2, > #fakeId) {
+  /* 1-0-1 */
+}
+p:not(#fakeId) {
+  /* 1-0-1 */
+}
+div:not(.inner, #fakeId) p {
+  /* 1-0-2 */
+}
+
+
+a:not(#fakeId#fakeId#fakeID) {
+  color: blue; /* 3-0-1 */
+}
+
+
+:where(#defaultTheme) a {
+  /* 0-0-1 */
+  color: red;
+}
+
+
+#myContent h1 {
+  color: green; /* 1-0-1 */
+}
+[id="myContent"] h1 {
+  color: yellow; /* 0-1-1 */
+}
+:where(#myContent) h1 {
+  color: blue; /* 0-0-1 */
+}
+
+
+
+==============================================================================================================
+
+Let's stay with the button example for now and switch the CSS around to this:
+
+
+.my-button {
+  background: blue;
+}
+
+[onclick] {
+  background: grey;
+}
+
+The button has a grey background, because both selectors have an identical specificity score (0-1-0).

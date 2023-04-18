@@ -1,0 +1,12 @@
+https://web.dev/learn/css/specificity/
+
+http://specifishity.com/
+
+https://specificity.keegan.st/
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+
+https://css-tricks.com/specifics-on-css-specificity/
+
+https://polypane.app/css-specificity-calculator/
+

@@ -1,0 +1,5 @@
+https://web.dev/learn/css/the-cascade/
+
+https://wattenberger.com/blog/css-cascade
+
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance
