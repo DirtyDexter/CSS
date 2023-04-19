@@ -1,0 +1,17 @@
+https://css-tricks.com/nerds-guide-color-web/
+
+https://developer.chrome.com/articles/high-definition-css-color-guide/
+
+https://www.youtube.com/watch?v=eqZqx6lRPe0
+
+https://medium.com/basecs/hexs-and-other-magical-numbers-9785bc26b7ee
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch
+
+
+https://codepen.io/argyleink/pen/ExjReJa
+
