@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="parent2">
+      <span>I am a paragraph of text that has a few words in it.</span>
+      <span class="my-element">I am a a of text that has a few wo in it.</span>
+    </div>
+
+    <div class="wrapper">
+      <article class="flow">
+        <h1>CSS Position Property</h1>
+        <div>
+          <label>
+            Change position value
+            <select>
+              <option value="static">Static (default)</option>
+              <option value="relative">Relative</option>
+              <option value="absolute">Absolute</option>
+              <option value="sticky">Sticky</option>
+              <option value="fixed">Fixed</option>
+            </select>
+          </label>
+        </div>
+        <div class="parent">
+          <p>I am a sibling element.</p>
+          <div class="box">Change my position value</div>
+          <p>I am another sibling element so you can see how we reflow when the position value is changed</p>
+        </div>
+      </article>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

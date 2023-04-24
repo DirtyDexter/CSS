@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+span {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.parent2 {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.parent {
+  padding: 0.5rem 2rem 2rem;
+  height: 1000px;
+  position: relative;
+  background: #e8f0fe;
+  border: 1px solid blue;
+}
+
+.box {
+  top: 1.5rem;
+  left: 1.5rem;
+  background: #f3f4f4;
+  border: 1px solid red;
+  padding: 10px; 
+}
+
+.parent p {
+  margin: 1em 0;
+}
+

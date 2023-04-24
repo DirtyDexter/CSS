@@ -1,0 +1,106 @@
+================================================================================
+
+You can't set an explicit width and height on inline elements.
+Any block level margin and padding will be ignored by the surrounding elements.
+
+
+=====================================================================================
+
+Block elements don't sit alongside each other.
+They create a new line for themselves. Unless changed by other CSS code,
+a block element will expand to the size of the inline dimension,
+therefore spanning the full width in a horizontal writing mode. The margin on all sides of a block element will be respected.
+
+===============================================================================================
+
+
+Floats #
+If you have an image that sits within a paragraph of text, wouldn't it be handy for that text to wrap around that image
+like you might see in a newspaper? You can do this with floats.
+
+
+img {
+	float: left;
+	margin-right: 1em;
+}
+The float property instructs an element to "float" to the direction specified.
+The image in this example is instructed to float left, which then allows sibling elements to "wrap" around it.
+You can instruct an element to float left, right or inherit.
+
+When you use float, keep in mind that any elements following the floated element may have their layout adjusted.
+To prevent this, you can clear the float, either by using clear: both on an element that follows your floated element or 
+with display: flow-root on the parent of your floated elements.
+
+============================================================================================================================
+
+Multicolumn layout #
+If you have a really long list of elements, such as a list of all of the countries of the world, 
+it can result in a lot of scrolling and time wasted for a user.
+It can also create excess whitespace on the page. With CSS multicolumn,
+you can split this into multiple columns to help with both of these issues.
+
+
+.countries {
+	column-count: 2;
+	column-gap: 1em;
+}
+
+
+This automatically splits that long list into two columns and adds a gap between the two columns.
+
+
+Instead of setting the number of columns that the content is split into, 
+you can also define a minimum desired width, using column-width.
+As more space is made available in the viewport, more columns will automatically be created and as space is reduced,
+columns will also reduce. This is very useful in responsive web design contexts.
+
+.countries {
+	width: 100%;
+	column-width: 260px;
+	column-gap: 1em;
+}
+
+
+=========================================================================================================
+
+
+Positioning #
+Last on this overview of layout mechanisms is positioning. 
+The position property changes how an element behaves in the normal flow of the document, 
+and how it relates to other elements. The available options are relative, absolute, 
+fixed and sticky with the default value being static.
+
+
+.my-element {
+  position: relative;
+  top: 10px;
+}
+This element is nudged 10px down based on its current position in the document, as it is positioned relative to itself.
+Adding position: relative to an element also makes it the containing block of any child elements with position: absolute.
+This means that its child will now be repositioned to this particular element, instead of the topmost relative parent, 
+when it has an absolute position applied to it.
+
+
+.my-element {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.another-element {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+}
+When you set position to absolute, it breaks the element out of the current document flow. This means two things:
+
+You can position this element wherever you like, using top, right, bottom and left in its nearest relative parent.
+All of the content surrounding an absolute element reflows to fill the remaining space left by that element.
+An element with a position value of fixed behaves in a similar way to absolute, with its parent being the root <html> element.
+Fixed position elements stay anchored from the top left based on the top, right, bottom and left values that you set.
+
+You can achieve the anchored, fixed aspects of fixed and the more predictable document flow-honoring aspects of relative by using sticky. 
+With this value, as the viewport scrolls past the element, it stays anchored to the top, right, bottom and left values that you set.
+
