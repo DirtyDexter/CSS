@@ -1,0 +1,140 @@
+====================================================================================================================
+
+Wrapping flex items #
+The initial value of the flex-wrap property is nowrap.
+This means that if there is not enough space in the container the items will overflow.
+
+A flex container with nine items inside it, the items have shrunk down so one word is on a line 
+but there is not enough room to show them side by side so the flex items have extended outside the box of the container.
+Once they hit min-content size flex items will start to overflow their container
+Items displaying using the initial values will shrink as small as they can, down to the min-content size before overflow happens.
+
+To cause the items to wrap add flex-wrap: wrap to the flex container.
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+When a flex container wraps it creates multiple flex lines.
+In terms of space distribution, each line acts like a new flex container.
+Therefore if you are wrapping rows, it is not possible to get something in row 2 to line up with something above it in row 1.
+This is what is meant by flexbox being one-dimensional.
+You can control alignment in one axis, a row or a column, not both together as we can do in grid.
+
+The flex-flow shorthand #
+You can set the flex-direction and flex-wrap properties using the shorthand flex-flow.
+For example, to set flex-direction to column and allow items to wrap:
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+=================================================================================================================================
+
+Controlling space inside flex items #
+Assuming our container has more space than is needed to display the items, the items line up at the start and do not grow to fill the space.
+They stop growing at their max-content size. This is because the initial value of the flex- properties is:
+
+flex-grow: 0: items do not grow.
+flex-shrink: 1: items can shrink smaller than their flex-basis.
+flex-basis: auto: items have a base size of auto.
+
+This can be represented by a keyword value of flex: initial. The flex shorthand property, or 
+the longhands of flex-grow, flex-shrink and flex-basis are applied to the children of the flex container.
+
+
+To cause the items to grow, while allowing large items to have more space than small ones use flex:auto. 
+You can try this using the demo above. This sets the properties to:
+
+flex-grow: 1: items can grow larger than their flex-basis.
+flex-shrink: 1: items can shrink smaller than their flex-basis.
+flex-basis: auto: items have a base size of auto.
+
+Using flex: auto will mean that items end up different sizes, as the space that is shared between the items is shared out after each item 
+is laid out as max-content size. So a large item will gain more space.
+To force all of the items to be a consistent size and ignore the size of the content change flex:auto to flex: 1 in the demo.
+
+This unpacks to:
+
+flex-grow: 1: items can grow larger than their flex-basis.
+flex-shrink: 1: items can shrink smaller than their flex-basis.
+flex-basis: 0: items have a base size of 0.
+
+Using flex: 1 says that all items have zero size, therefore all of the space in the flex container is available to be distributed.
+As all items have a flex-grow factor of 1 they all grow equally and the space is shared equally.
+
+There is also a value of flex: none, which will give you inflexible flex items that do not grow or shrink.
+This might be useful if you are purely using flexbox to access the alignment properties but don't want any flexible behavior.
+
+=======================================================================================================================================
+
+Allowing items to grow at different rates #
+
+You don't have to give all items a flex-grow factor of 1.
+You could give your flex items different flex-grow factors.
+
+In the demo below the first item has flex: 1, the second flex: 2 and third flex: 3. 
+
+As these items grow from 0 the available space in the flex container is shared into six.
+One part is given to the first item, two parts to the second, three parts to the third.
+
+================================================================================================================================
+
+Reordering flex items #
+
+Items in your flex container can be reordered using the order property. 
+This property allows the ordering of items in ordinal groups. 
+Items are laid out in the direction dictated by flex-direction, lowest values first. 
+If more than one item has the same value it will be displayed with the other items with that value.
+
+Using order has the same problems as the row-reverse and column-reverse values of flex-direction.
+It would be very easy to create a disconnected experience for some users.
+Do not use order because you are fixing things being out of order in the document.
+If the items logically should be in a different order, change your HTML!
+
+
+=============================================================================================================================
+
+
+Flexbox alignment overview #
+
+Flexbox brought with it a set of properties for aligning items and distributing space between items.
+These properties were so useful they have since been moved into their own specification, you'll encounter them in Grid Layout too.
+Here you can find out how they work when you are using flexbox.
+
+The set of properties can be placed into two groups. Properties for space distribution, and properties for alignment.
+
+The properties which distribute space are:
+
+justify-content: space distribution on the main axis.
+align-content: space distribution on the cross axis.
+place-content: a shorthand for setting both of the above properties.
+
+
+The properties used for alignment in flexbox:
+
+align-self: aligns a single item on the cross axis.
+align-items: aligns all of the items as a group on the cross axis.
+
+If you are working on the main axis then the properties begin with justify-. On the cross axis they begin with align-.
+
+
+==========================================================================================================================
+
+Why is there no justify-self in flexbox? #
+Flex items act as a group on the main axis. So there is no concept of splitting an individual item out of that group
+
+
+===================================================================================================================
+
+
+If you are shrinking from auto then the flex-basis will either be treated as any width or height on the item or the max-content size. 
+Space will then be removed according to the flex-basis size multiplied by the flex-shrink factor, and 
+therefore removed in proportion to the max-content size of the items.
+
+======================================================================================================================
+
+
+
