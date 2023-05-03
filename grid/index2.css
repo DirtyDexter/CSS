@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --var-col: 1fr;
+}
+
+.container {
+  display: grid;
+  /* grid-template-columns: repeat(3, minmax(0,1fr)); */
+  grid-template-columns: 1fr 1fr var(--var-col);
+  grid-template-rows: 200px auto;
+  gap: 10px;
+  background-color: #f1f2f3;
+  padding: 1em;
+  max-width: 30rem;
+}
+
+select {
+  min-width: unset;
+}
+
+.box {
+  background: #666;
+  color: white;
+  padding: 5px;;
+}
+
+
+.box.blue {
+  background-color: #08f;
+}

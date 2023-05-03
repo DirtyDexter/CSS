@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --var-col: 1fr;
+}
+
+.container {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, 200px); */
+  /* creates track of size 200px and then distribute remaining extra space */
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 10px;
+  background-color: #f1f2f3;
+  padding: 1em;
+  max-width: 30rem;
+}
+
+.box {
+  background: #666;
+  color: white;
+  padding: 5px;;
+}
+

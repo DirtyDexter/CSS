@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --var-col: auto;
+}
+
+.container {
+  display: grid;
+  /* grid-template-columns: 5em 100px 30%; */
+  grid-template-columns: repeat(3, var(--var-col));
+  grid-template-rows: 200px auto;
+  gap: 10px;
+  background-color: #f1f2f3;
+  padding: 1em;
+  max-width: 30rem;
+}
+
+.box {
+  background: #666;
+  color: white;
+  padding: 5px;;
+}

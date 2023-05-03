@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <label>
+        Choose column size
+        <select id="switcher">
+          <option value="auto">auto</option>
+          <option value="min-content">min-content</option>
+          <option value="max-content">max-content</option>
+          <option value="fit-content(7em)">fit-content(7em)</option>
+        </select>
+      </label>
+    </div>
+    
+    <!-- You might spot in this demo that when auto is used the grid columns stretch to fill the container. 
+      Auto sized tracks will stretch by default if there is additional space in the grid container.
+    -->
+  
+    <div class="container" id="container">
+      <div class="box">Item one</div>
+      <div class="box">Item two</div>
+      <div class="box">Item three has more text</div>
+      <div class="box">Item four</div>
+      <div class="box">Item five has more text</div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+better to look into first link in links.txt file.
+
+.item {
+    grid-column-end: span 2; /* will span two lines, therefore covering two tracks */
+}
+
+.item {
+    grid-column: auto / span 2;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px 100px);
+}
+
+.item {
+    grid-column-start: 1; /* start at column line 1 */
+    grid-column-end: 4; /* end at column line 4 */
+    grid-row-start: 2; /*start at row line 2 */
+    grid-row-end: 4; /* end at row line 4 */
+}
+
+
+.container {
+    display: grid;
+    grid-auto-rows: minmax(10em, auto);
+}
+
+
+.container {
+    display: grid;
+    grid-auto-columns: 100px 200px;
+}
+
+=======================================================
+
+header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas:
+        "header header header header"
+        "sidebar content content content"
+        "sidebar footer footer footer";
+}
+
+
