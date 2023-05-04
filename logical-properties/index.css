@@ -1,0 +1,47 @@
+:root {
+  --direction: ltr;
+}
+
+.sample {
+  direction: var(--direction);
+}
+
+.sample p {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 0.5em;
+  background: #f3f3f3;
+  border: 1px solid #888;
+}
+
+.sample p svg {
+  width: 1.2em;
+  height: 1.2em;
+  /* margin-right: 0.5rem; */
+  /* attention here */
+  margin-inline-end: 0.5em; 
+  flex: none;
+  fill: #06f;
+}
+
+.my-element {
+  padding: 0.25em;
+  direction: var(--direction);
+}
+
+.my-element-1 {
+	border-bottom: 1px solid red;
+	border-right: 1px solid red;
+	border-bottom-right-radius: 1em;
+}
+
+.my-element-2 {
+  margin-block-start: 2rem;
+	border-block-end: 1px solid red;
+	border-inline-end: 1px solid red;
+	border-end-end-radius: 1em;
+}
+
+
