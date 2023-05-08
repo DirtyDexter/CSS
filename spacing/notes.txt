@@ -1,0 +1,60 @@
+The margin shorthand can also be used with one, two, or three values.
+Adding a fourth value lets you set each individual side. These are applied as follows:
+
+One value will be applied to all sides. (margin: 20px).
+
+Two values: the first value will be applied to the top and bottom sides, 
+and the second value will be applied to the left and right sides. (margin: 20px 40px)
+
+Three values: the first value is top, the second value is left and right, and the third value is bottom. (margin: 20px 40px 30px).
+
+
+========================================================================================================================
+
+Margin collapse 
+
+Margin collapse is a tricky concept, but it's something you'll run into very commonly when building interfaces.
+Say you have two elements: a heading and a paragraph that both have vertical margin on them:
+
+
+<article>
+  <h1>My heading with teal margin</h1>
+  <p>A paragraph of text that has blue margin on it, following the heading with margin.</p>
+</article>
+
+h1 {
+	margin-bottom: 2rem;
+}
+
+p {
+	margin-top: 3rem;
+}
+
+At first glance, you would be forgiven for thinking that the paragraph will be spaced 5em from the heading, 
+because 2rem and 3rem combined calculate to 5rem. Because vertical margin collapses, though, the space is actually 3rem.
+
+Margin collapse works by selecting the largest value of two adjoining elements with vertical margin set on the adjoining sides.
+The bottom of the h1 meets the top of the p, so the largest value of the h1's bottom margin and the p's top margin is selected.
+If the h1 were to have 3.5rem of bottom margin, the space between them both would then be 3.5rem because that is larger than 3rem.
+Only block margins collapse, not inline (horizontal) margins.
+
+==================================================================================================================================
+
+Preventing margin collapse #
+If you make an element absolutely positioned, using position: absolute, the margin will no longer collapse.
+The margin also won't collapse if you use the float property, too.
+
+If you have an element with no margin between two elements with block margin, the margin won't collapse either,
+because the two elements with block margin are no longer adjacent siblings: they are just siblings.
+
+====================================================================================================================
+
+Lastly, in both grid and flexbox you can use the gap property to create space between child elements.
+The gap property is shorthand for row-gap and column-gap, it accepts one or two values, which can be lengths or percentages.
+You can also use keywords such as unset, initial and inherit.
+If you define only one value, the same gap will be applied to both the rows and columns, but if you define both values,
+the first value is row-gap and the second value is column-gap.
+
+
+==========================================================================================================================================
+
