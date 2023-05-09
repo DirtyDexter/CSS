@@ -1,0 +1,12 @@
+https://web.dev/learn/css/pseudo-classes/
+
+https://www.w3.org/TR/css-syntax-3/#anb-microsyntax
+
+https://css-tricks.com/examples/nth-child-tester/
+
+https://quantityqueries.com/
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
+

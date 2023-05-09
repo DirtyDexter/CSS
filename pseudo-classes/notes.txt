@@ -1,0 +1,234 @@
+
+
+Pseudo-classes let you apply CSS based on state changes. This means that your design can react to user input such as an invalid email address.
+
+
+==================================================================================================================================================
+
+
+
+a:hover {
+  background: black;
+  color: white;
+  text-decoration: none;
+}
+==================================================================================================================================================
+.button:active {
+  transform: scale(0.99);
+  box-shadow: none;
+}
+
+This state is triggered when an element is actively being interacted with— such as a click—before click is released.
+If a pointing device like a mouse is used, this state is when the click starts and hasn't yet been released.
+
+====================================================================================================================================================
+
+.button:focus {
+  outline: 2px dashed blue;
+  outline-offset: 2px;
+  background-color: black;
+}
+
+:focus-within .helper {
+  display: block;
+}
+
+button:focus {
+	outline: none;
+}
+ 
+
+// when you focus with your tab key, the focus ring will show.
+button:focus-visible {
+	outline: 1px solid black;
+}
+
+
+========================================================================================================================================================
+
+The :target pseudo-class selects an element that has an id matching a URL fragment. Say you have the following HTML:
+
+
+<article id="content">
+	…
+</article>
+You can attach styles to that element when the url contains #content.
+
+
+#content:target {
+	background: yellow;
+}
+
+This is useful for highlighting areas that might have been specifically linked to, such as the main content on a website, via a skip link.
+
+=================================================================================================================================================
+
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: black;
+}
+
+Order matters #
+If you define a :visited style, it can be overridden by a link pseudo-class with at least equal specificity.
+Because of this, it's recommended that you use the LVHA rule for styling links with pseudo-classes in a particular order:
+ :link, :visited, :hover, :active.
+
+
+a:link {}
+a:visited {}
+a:hover {}
+a:active {}
+
+For security reasons, you can only change styles defined by a :link or unvisited state with the :visited pseudo-class,
+so making sure you define changeable styles first is important. Sticking to the LVHA rule will help with that.
+
+=================================================================================================================================================
+
+button:disabled {
+  background: grey;
+  border-color: grey;
+}
+
+button:enabled {
+  border: 5px solid gold;
+}
+
+button:disabled:hover {
+  box-shadow: none;
+}
+
+=================================================================================================================================================
+
+
+The :checked pseudo-class is available when a supporting form element, such as a checkbox or radio button is in a checked state.
+
+The :checked state is a binary(true or false) state, but checkboxes do have an in-between state when they are neither checked or unchecked. 
+This is known as the :indeterminate state.
+
+The <progress> element also has an indeterminate state that can be styled.
+A common use case is to give it a striped appearance to indicate it's unknown how much more is needed.
+
+=================================================================================================================================================
+
+:placeholder-shown #
+
+If a form field has a placeholder attribute and no value, the :placeholder-shown pseudo-class can be used to attach styles to that state.
+As soon as there is content in the field, whether it has a placeholder or not, this state will no longer apply.
+
+=================================================================================================================================================
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+
+// The :in-range pseudo-class is available if an input has a min and max, such as a numeric input and the value is within those bounds.
+input:in-range {
+  background: green;
+  color: white;
+}
+
+=================================================================================================================================================
+
+With HTML forms, you can determine that a field is required with the required attribute.
+The :required pseudo-class will be available for required fields.
+Fields that are not required can be selected with the :optional pseudo-class.
+
+
+=================================================================================================================================================
+
+p:first-child {
+  background: lightskyblue;
+  font-weight: bold;
+}
+
+p:last-child {
+  background: lightyellow;
+  font-weight: bold;
+}
+
+li:only-child {
+  background: lightyellow;
+}
+
+=================================================================================================================================================
+
+
+<div class="my-parent">
+	<p>A paragraph</p>
+	<div>A div</div>
+	<div>Another div</div>
+</div>
+
+.my-parent div:first-of-type {
+	color: red;
+}
+
+=================================================================================================================================================
+
+
+li:nth-child(2) {
+  background: yellow;
+}
+
+tr:nth-child(even) td {
+  background: #f3f3f3;
+}
+
+li:nth-child(3n+3) {
+	background: yellow;
+}
+
+https://www.w3.org/TR/css-syntax-3/#anb-microsyntax
+
+strong:only-of-type {
+  background: yellow;
+}
+
+=================================================================================================================================================
+
+The :empty pseudo-class can be useful if you have little control over the HTML and want to hide empty elements, 
+such as a WYSIWYG content editor. Here, an editor has added a stray, empty paragraph.
+
+
+<article class="post">
+ <p>Donec ullamcorper nulla non metus auctor fringilla.</p>
+ <p></p>
+ <p>Curabitur blandit tempus porttitor.</p>
+</article>
+With :empty, you can find that and hide it.
+
+
+.post :empty {
+	display: none;
+}
+
+=================================================================================================================================================
+
+.post :is(h2, li, img) {
+	…
+}
+
+The :is pseudo-class is not only more compact than a selector list but it is also more forgiving.
+In most cases, if there's an error or unsupported selector in a selector list, the entire selector list will no longer work.
+If there's an error in the passed selectors in an :is pseudo-class, it will ignore the invalid selector, but use those which are valid.
+
+=================================================================================================================================================
+
+You can also exclude items with the :not() pseudo-class. For example, you can use it to style all links that don't have a class attribute.
+
+
+a:not([class]) {
+	color: blue;
+}
+
+=================================================================================================================================================
+
+

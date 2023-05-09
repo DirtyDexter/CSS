@@ -1,0 +1,22 @@
+:indeterminate {
+  box-shadow: 0px 0px 5px 2px orange;
+}
+
+label {
+  font-weight: bold;
+}
+
+hr {
+  max-width: 300px;
+  margin: 1em 0 !important;
+}
+
+input[type="text"] {
+  margin-block-start: 1rem;
+}
+
+input[type="text"]:placeholder-shown {
+  background-color: black;
+  color: white;
+}
+
