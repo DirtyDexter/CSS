@@ -1,0 +1,92 @@
+
+
+====================================================================================================================================================================
+
+.my-element {
+	border-radius: 1em;
+}
+
+
+.my-element {
+	border-radius: 1em 2em 3em 4em;
+}
+
+.my-element {
+	border-top-left-radius: 1em 2em;
+}
+
+
+.my-element {
+	border: 2px solid;
+  border-radius: 95px 155px 148px 103px / 48px 95px 130px 203px;
+}
+
+====================================================================================================================================================================
+
+.my-element {
+  border-image-source: url(https://assets.codepen.io/174183/border-image-frame.jpg);
+  border-image-slice: 61 58 51 48;
+  border-image-width: 20px 20px 20px 20px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+}
+
+The border-image-width property is like border-width: it is how you set the width of your border image.
+
+The border-image-outset property lets you set the distance between your border image and the box that it wraps around.
+The border-image-outset CSS property sets the distance by which an element's border image is set out from its border box.
+The parts of the border image that are rendered outside the element's border box with border-image-outset do not trigger overflow scrollbars and don't capture mouse events.
+
+
+====================================================================================================================================================================
+
+border-image-source #
+The border-image-source (source of the border image) can be a url for any valid image, which includes CSS gradients.
+
+
+.my-element {
+	border-image-source: url('path/to/image.png');
+}
+
+.my-element {
+	border-image-source: linear-gradient(to bottom, #000, #fff);
+}
+
+====================================================================================================================================================================
+
+border-image-slice #
+The border-image-slice property is a useful property that allows you to slice an image into 9 parts, made up of 4 split lines.
+It works like the margin shorthand where you define the top, right, bottom and left offset value.
+
+
+.my-element {
+	border-image: url('image.jpg');
+	border-image-slice: 61 58 51 48;
+}
+
+With the offset values defined, you now have 9 sections of the image: 4 corners, 4 edges and a middle section.
+The corners are applied to the corners of the element with the border image.
+
+The edges are applied to the edges of that element.
+The border-image-repeat property defines how those edges fill their space and the border-image-width property controls the size of the slices.
+
+Lastly, the fill keyword determines whether the middle section, left by the slicing, is used as the element's background image or not.
+
+
+====================================================================================================================================================================
+
+
+border-image-repeat #
+border-image-repeat is how you instruct CSS how you would like your border image to repeat. It works the same as background-repeat.
+
+The initial value is stretch, which stretches the source image to fill available space where possible.
+
+The repeat value tiles the source image's edges as many times as possible, and may clip the edge regions to achieve this.
+
+The round value is the same as repeat, but instead of clipping the image edge regions to fit as many as possible,
+it stretches the image as well as repeating it to achieve a seamless repeat
+
+The space value is again, the same as repeat, but this value adds space between each edge region to create a seamless pattern.
+
+
+

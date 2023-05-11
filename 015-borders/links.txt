@@ -1,0 +1,7 @@
+https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice
+
+https://web.dev/learn/css/borders/
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-outset
+

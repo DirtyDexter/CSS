@@ -1,0 +1,48 @@
+
+There is also a HTML attribute called tabindex which allows you to change the tabbing index—which is order in which elements are focused—every 
+time someone presses their tab key, or focus is shifted with a hash change in the URL or by a JavaScript event.
+
+If tabindex on a HTML element is set to 0, it can receive focus via the tab key and it will honour the global tab index,
+which is defined by the document source order.
+
+If you set tabindex to -1, it can only receive focus programmatically, which means only when a JavaScript event happens or a hash change
+(matching the element's id in the URL) occurs.
+
+If you set tabindex to be anything higher than 0, it will be removed from the global tab index, defined by document source order.
+Tabbing order will now be defined by the value of tabindex, so an element with tabindex="1" will receive focus before an element with tabindex="2",
+for example.
+
+
+Warning
+
+Honoring document source order is really important, and focus order should only be changed if you absolutely have to change it.
+This applies both when setting tabindexand changing visual order with CSS layout, such as flexbox and grid.
+Anything that creates unpredictable focus on the web can create an inaccessible experience for the user.
+
+
+a:focus {
+  outline: 2px solid slateblue;
+  outline-offset: 60px;
+}
+
+==========================================================================================================================================
+
+
+Currently in some browsers, if you have a border-radius set on your element and use outline, it won't match—the outline will have sharp corners.
+Due to this, it is tempting to use a box-shadow with a small blur radius because box-shadow clips to the shape, honouring border-radius, 
+but this style will not show in Windows High Contrast Mode.
+This is because Windows High Contrast Mode doesn't apply shadows, and mostly ignores background images to favor the user's preferred settings.
+
+==========================================================================================================================================
+
+
+In summary #
+
+Creating a focus state that has contrast with an element's default state is incredibly important.
+The default browser styles do this already for you, but if you want to change this behaviour, remember the following:
+
+1- Avoid using outline: none on an element that can receive keyboard focus.
+2- Avoid replacing outline styles with box-shadow. as they don't show up in Windows High Contrast Mode.
+3- Only set a positive value for tabindex on an HTML element if you absolutely have to.
+4- Make sure the focus state is very clear vs the default state.
+
