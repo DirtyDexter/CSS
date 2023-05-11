@@ -1,0 +1,82 @@
+In normal flow, if you set a specific value for z-index and it isn't working, 
+you need to set the element's position value to anything other than static.
+This is a common place where people struggle with z-index.
+
+
+
+This isn't the case if you are in a flexbox or grid context, though, because you can modify the z-index of flex or grid items without 
+adding position: relative.
+
+==============================================================================================================================
+
+Negative z-index #
+To set an element behind another element, add a negative value for z-index.
+
+
+.my-element {
+	background: rgb(232 240 254 / 0.4);
+}
+
+.my-element .child {
+	position: relative;
+	z-index: -1;
+}
+
+
+As long as .my-element has the initial value for z-index of auto, the .child element will sit behind it.
+
+
+Add the following CSS to .my-element, and the .child element will not sit behind it.
+
+.my-element {
+  position: relative;
+  z-index: 0;
+  background: rgb(232 240 254 / 0.4);
+}
+
+Because .my-element now has a position value that's not static and a z-index value that's not auto,
+it has created a new stacking context. This means that even if you set .child to have a z-index of -999,
+it would still not sit behind .my-parent.
+
+==============================================================================================================================
+
+Stacking context #
+A stacking context is a group of elements that have a common parent and move up and down the z axis together.
+
+The z-index of elements inside of a stacking context are always relative to the parent's current order in its own stacking context.
+
+The <html> element is a stacking context itself and nothing can ever go behind it.
+You can put stuff behind the <body> until you create a stacking context with it.
+
+==============================================================================================================================
+
+Creating a stacking context #
+You don't need to apply z-index and position to create a new stacking context.
+You can create a new stacking context by adding a value for properties which create a new composite layer such as opacity, 
+will-change and transform. You can see a full list of properties here => 
+(https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+
+
+==============================================================================================================================
+
+A stacking context is formed, anywhere in the document, by any element in the following scenarios:
+
+Root element of the document (<html>).
+Element with a position value absolute or relative and z-index value other than auto.
+Element with a position value fixed or sticky (sticky for all mobile browsers, but not older desktop browsers).
+Element that is a child of a flex container, with z-index value other than auto.
+Element that is a child of a grid container, with z-index value other than auto.
+Element with an opacity value less than 1 (See the specification for opacity).
+Element with a mix-blend-mode value other than normal.
+Element with any of the following properties with value other than none:
+transform
+filter
+backdrop-filter
+perspective
+clip-path
+mask / mask-image / mask-border
+Element with an isolation value isolate.
+Element with a will-change value specifying any property that would create a stacking context on non-initial value (see this post).
+Element with a contain value of layout, or paint, or a composite value that includes either of them (i.e. contain: strict, contain: content).
+
+
