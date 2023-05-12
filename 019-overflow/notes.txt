@@ -1,0 +1,122 @@
+p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+========================================================================================================================
+
+The overflow shorthand #
+The overflow shorthand sets both overflow-x and overflow-y styles in one line:
+
+
+overflow: hidden scroll;
+If two keywords are specified, the first applies to overflow-x and the second to overflow-y.
+Otherwise, both overflow-x and overflow-y use the same value.
+
+
+Values #
+Let's take a closer look at the values and keywords available for the overflow properties.
+
+overflow: visible (default)
+Without setting the property, overflow: visible is the default value for the web.
+This ensures that content is never unintentionally hidden and follows the core tenets of "never hide content" or "safe layouts of precise layouts".
+
+overflow: hidden
+With overflow: hidden content is clipped in the specified direction, and no scrollbars are provided to show it.
+
+overflow: scroll
+overflow: scroll enables scrollbars to allow users to scroll through content.
+Even if content isn't currently overflowing, scrollbars will be present.
+This is a great way to reduce future layout shift if a container may be scrollable in the future based,
+for example, on resize, and visually prepare the user for scrollable areas.
+
+overflow: clip
+Like overflow: hidden, the content with overflow: clip is clipped to the element's padding box.
+The difference between clip and hidden is that the clip keyword also forbids all scrolling, including programmatic scrolling.
+
+
+overflow: auto
+Finally, the value most commonly used, overflow: auto. This respects the user's preferences and shows scrollbars if needed,
+but hides them by default, and gives responsibility for scrolling to the user and browser.
+
+========================================================================================================================
+
+
+Scrolling and accessibility #
+
+It's important to make sure that the scrollable area can accept focus so that a keyboard user can tab to the box, then use the arrow keys to scroll.
+
+To allow a scrolling box to accept focus add tabindex="0", a name with the aria-labelledby attribute, and an appropriate role attribute. For example:
+
+
+<div tabindex="0" role="region" aria-labelledby="id-of-descriptive-text">
+    content
+</div>
+CSS can then be used to indicate that the box has focus, using the outline property to give a visual clue that it will now be scrollable.
+
+In (https://adrianroselli.com/2021/06/using-css-to-enforce-accessibility.html) Adrian Roselli demonstrates how CSS can help prevent 
+accessibility regressions. For example, to only turn on scrolling and add the focus indicator if the correct attributes are used.
+The following rules will only make the box scrollable if it has a tabindex, aria-labelledby, and role attribute.
+
+
+[role][aria-labelledby][tabindex] {
+  overflow: auto;
+}
+
+[role][aria-labelledby][tabindex]:focus {
+  outline: .1em solid blue;
+}
+
+========================================================================================================================
+
+Scrollbar positioning within the box model #
+Scroll bars take up space within the padding box and can compete for space if inline and not overlayed.
+The box model module expands more on this potential source of layout shift.
+
+
+
+========================================================================================================================
+
+root-scroller vs implicit-scroller #
+You may notice that some scrollers have a pull-to-refresh behavior and other special behaviors, 
+especially when developing for mobile and hybrid applications. This scroll behavior happens on the root scroller.
+There is only ever one root scroller on a page. By default, the documentElement is the page's root scroller, however,
+by changing which element is the root scroller, the special behaviors can be applied to scrollers other than the documentElement,
+we call this new scroller the implicit root scroller.
+
+To create a root scroller, you can use something called scroller promotion by positioning a container as fixed,
+ensuring it covers the entire viewport and is z-index on top with a scroller. Experience a root scroller vs a nested implicit scroller here.
+https://cdpn.io/web-dot-dev/debug/dyzPzwz
+
+
+========================================================================================================================
+
+scroll-behavior #
+
+scroll-behavior allows you to opt into browser-controlled scrolling to elements.
+This allows you to specify how in-page navigation like .scrollTo() or links are handled.
+
+This is especially useful when used with prefers-reduced-motion to specify scroll behavior based on user preference.
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-view {
+    scroll-behavior: auto;
+  }
+}
+
+
+========================================================================================================================
+
+overscroll-behavior #
+
+If you’ve ever reached the end of a modal overlay, then continued scrolling and had the page behind the overlay move, 
+this is the scroll chaining, or bubbling up to the parent scroll container. 
+The overscroll-behavior property allows you to prevent overflow scrolling leaking into a parent container (called scroll chaining).
+
+.modal-content {
+  overscroll-behavior: contain/auto/none;
+}
+
+========================================================================================================================
