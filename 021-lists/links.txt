@@ -1,0 +1,12 @@
+https://web.dev/learn/css/lists/
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+
+https://web.dev/css-marker-pseudo-element/
+
+https://css-tricks.com/counting-css-counters-css-grid/
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
+

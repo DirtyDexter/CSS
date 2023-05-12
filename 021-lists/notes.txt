@@ -1,0 +1,166 @@
+Creating a List #
+
+The preceding list started with a semantic element, or <ul>, with grocery list items (<li> elements) as children.
+If you inspect each <li> element you can see that they all have display: list-item, which is why the browser renders a ::marker by default.
+
+
+li {
+  display: list-item;
+}
+
+There are two other types of lists.
+
+Ordered lists can be created with <ol>, in which case the list-item will display a number as the ::marker.
+
+<ol>
+  <li>oat milk</li>
+  <li>rhubarb</li>
+  <li>cereal</li>
+  <li>pie crust</li>
+</ol>
+
+
+And description lists are created with <dl>, however this list type does not use the <li> list item element.
+
+<dl>
+  <dt>oat milk</dt>
+  <dd>- non dairy trendy drink</dd>
+  <dt>cereal</dt>
+  <dd>- breakfast food</dd>
+</dl>
+
+============================================================================================================================================================
+
+list-style-position #
+list-style-position allows you to move your bullet point to either inside or outside the list-item's contents.
+The default outside means the bullet point is not included in the list items contents while inside moves the first element among the list item's contents.
+
+
+ul.inside {
+  list-style-position: inside;
+}
+
+============================================================================================================================================================
+
+
+list-style-image #
+
+list-style-image allows you to replace your list's bullet points with images.
+This enables you to set an image such as an url or none to make your bullets an image, svg or gif even.
+You can also use any media type or even a data URI.
+
+ul {
+/*   list-style-image: linear-gradient(to left bottom, pink, teal); */
+  list-style-image: url("https://i.imgur.com/jMyOape.gif");
+}
+
+This property is a bit limited in controlling the position, size, etc. of the bullets,
+so we recommend using the ::marker property for a more customizable approach.
+
+============================================================================================================================================================
+
+list-style-type #
+
+The final option is to style the list-style-type which changes the bullet points to known style keywords, custom strings, emojis and more.
+You can view all of the possible list style types here.
+https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type
+
+
+
+============================================================================================================================================================
+
+
+list-style shorthand #
+Now that we have all of these individual properties, we can use the list-style shorthand to set all of our list styles in one line:
+
+
+list-style: <'list-style-type'> || <'list-style-position'> || <'list-style-image'>
+
+list-style allows you to declare combinations of one, two, or three of the list-style properties in any order.
+If list-style-type and list-style-image are both set, then list-style-type is used as a fallback if the image is unavailable.
+
+
+/* type */
+list-style: square;
+
+/* image */
+list-style: url('../img/shape.png');
+
+/* position */
+list-style: inside;
+
+/* type | position */
+list-style: georgian inside;
+
+/* type | image | position */
+list-style: lower-roman url('../img/shape.png') outside;
+
+/* Keyword value */
+list-style: none;
+
+/* Global values */
+list-style: inherit;
+list-style: initial;
+list-style: revert;
+list-style: unset;
+
+
+============================================================================================================================================================
+
+::marker pseudo-element #
+
+The list-item marker element is the bullet, hyphen, or roman numeral that helps indicate each item in your list.
+
+If you inspect the list in DevTools, you can see a ::marker element for each of the list items, despite not declaring any in HTML.
+If you inspect the ::marker further, you'll see the browser default styling for it.
+
+
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+
+more - https://web.dev/css-marker-pseudo-element/
+
+::marker {
+  color: plum;
+}
+
+
+Note: ::marker elements precede any pseudo-elements that you may have inserted using CSS ::before.
+
+There are quite a few allowed CSS ::marker Properties:
+
+animation-*
+transition-*
+color
+direction
+font-*
+content
+unicode-bidi
+white-space
+
+============================================================================================================================================================
+
+Display type #
+
+All of our list-style and ::marker properties know to style <li> elements because they have a default display value of list-item.
+You can also make things that aren't an <li> into a list item.
+
+You do this by adding the property display: list-item.
+One example of using display: list-item is if you want a hanging bullet on a heading, so that you can change it to something else with ::marker.
+
+h1 {
+  display: list-item;
+  margin-left: 3rem;
+}
+
+h1::marker {
+  content: "🥕";
+}
+
+IMP - https://css-tricks.com/counting-css-counters-css-grid/
