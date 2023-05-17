@@ -1,0 +1,12 @@
+https://web.dev/learn/css/functions/
+
+https://3dtransforms.desandro.com/
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms#setting_perspective
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
+

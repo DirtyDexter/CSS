@@ -1,0 +1,395 @@
+<html>
+  <head>
+    <style>
+      .boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .boxes > * {
+        padding: 3em 1.5em;
+        text-align: center;
+        background: #08f;
+        border: 1px solid blue;
+      }
+
+      label {
+        display: block;
+        width: max-content;
+      }
+
+      * { 
+        box-sizing: border-box;
+      }
+
+      .scene {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        margin: 80px;
+        perspective: 400px;
+      }
+
+      .cube {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: translateZ(-100px);
+      }
+
+      .cube.is-spinning {
+        animation: spinCube 8s infinite ease-in-out;
+      }
+
+      @keyframes spinCube {
+        0% {
+          transform: translateZ(-100px) rotateX(0deg) rotateY(0deg);
+        }
+        100% {
+          transform: translateZ(-100px) rotateX(360deg) rotateY(360deg);
+        }
+      }
+
+      .cube__face {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 2px solid #000;
+        line-height: 200px;
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+      }
+
+      .cube__face--front {
+        background: hsla(0, 100%, 50%, 0.7);
+        transform: rotateY(0deg) translateZ(100px);
+      }
+
+      .cube__face--right {
+        background: hsla(60, 100%, 50%, 0.7);
+        transform: rotateY(90deg) translateZ(100px);
+      }
+
+      .cube__face--back {
+        background: hsla(120, 100%, 50%, 0.7);
+        transform: rotateY(180deg) translateZ(100px);
+      }
+
+      .cube__face--left {
+        background: hsla(180, 100%, 50%, 0.7);
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+
+      .cube__face--top {
+        background: hsla(240, 100%, 50%, 0.7);
+        transform: rotateX(90deg) translateZ(100px);
+      }
+
+      .cube__face--bottom {
+        background: hsla(300, 100%, 50%, 0.7);
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+
+      .cube.is-backface-hidden .cube__face {
+        backface-visibility: hidden;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>The rotate functions</h1>
+          <figure class="callout">
+            <p>
+              Use the slider to see how each of the rotate functions affect the boxes.
+            </p>
+          </figure>
+          <label>
+            Rotate the boxes
+            <input type="range" min="0" max="360" value="0" />
+          </label>
+          <div class="boxes">
+            <div data-transform="x"><code>rotateX()</code></div>
+            <div data-transform="y"><code>rotateY()</code></div>
+            <div data-transform="z"><code>rotateZ()</code></div>
+            <div class="rotate3d"><code>rotate3d()</code></div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>The scale functions</h1>
+          <figure class="callout">
+            <p>
+              Use the slider to see how the <code>scaleX</code> and
+              <code>scaleY</code> functions affect the boxes.
+            </p>
+          </figure>
+          <label>
+            Scale the boxes
+            <input type="range" min="0.3" max="2" step="0.1" value="1" />
+          </label>
+          <div class="boxes">
+            <div data-transform1="x"><code>scaleX()</code></div>
+            <div data-transform1="y"><code>scaleY()</code></div>
+            <div data-transform1="z"><code>scaleZ()</code></div>
+            <div class="scale3d"><code>scale3d()</code></div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>The translate functions</h1>
+          <figure class="callout">
+            <p>
+              Use the slider to see how the <code>translate</code> functions affect the
+              boxes.
+            </p>
+          </figure>
+          <label>
+            Translate the boxes
+            <input type="range" min="-100" max="100" value="0" />
+          </label>
+          <div class="boxes">
+            <div data-transform2="x"><code>translateX()</code></div>
+            <div data-transform2="y"><code>translateY()</code></div>
+            <div data-transform2="z"><code>translateZ()</code></div>
+            <div class="translate3d"><code>translate3d()</code></div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>The skew functions</h1>
+          <figure class="callout">
+            <p>
+              Use the slider to see how the <code>skew</code> functions affect the
+              boxes.
+            </p>
+          </figure>
+          <label>
+            Skew the boxes
+            <input type="range" min="0" max="100" value="0" />
+          </label>
+          <div class="boxes">
+            <div data-transform3="x"><code>skewX()</code></div>
+            <div data-transform3="y"><code>skewY()</code></div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>The perspective</h1>
+          <figure class="callout">
+            <p>
+              Use the slider to see how the <code>perspective</code> affect the
+              boxes.
+            </p>
+          </figure>
+          <p>
+            <label>
+              perspective
+              <input class="perspective-range" type="range" min="1" max="1000" value="400" data-units="px" />
+            </label>
+          </p>
+          <p>
+            <label>
+              perspective-origin x
+              <input class="origin-x-range" type="range" min="0" max="100" value="50" data-units="%" />
+            </label>
+          </p>
+          <p>
+            <label>
+              perspective-origin y
+              <input class="origin-y-range" type="range" min="0" max="100" value="50" data-units="%" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Spin cube
+              <input class="spin-cube-checkbox" type="checkbox" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Backface visible
+              <input class="backface-checkbox" type="checkbox" checked />
+            </label>
+          </p>
+          <div class="scene">
+            <div class="cube">
+              <div class="cube__face cube__face--front">front</div>
+              <div class="cube__face cube__face--back">back</div>
+              <div class="cube__face cube__face--right">right</div>
+              <div class="cube__face cube__face--left">left</div>
+              <div class="cube__face cube__face--top">top</div>
+              <div class="cube__face cube__face--bottom">bottom</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script>
+      const boxes = document.querySelectorAll('[data-transform]');
+      const boxe3d = document.querySelectorAll('.rotate3d');
+      const slider = document.querySelectorAll('input[type="range"]')[0];
+
+      slider.addEventListener('input', () => {
+        boxes.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: rotate${box.getAttribute('data-transform').toUpperCase()}(${
+              slider.value
+            }deg)`
+          );
+        });
+        boxe3d.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: rotate3d(100,50,1,${slider.value}deg)`
+          );
+        });
+      });
+
+      const boxes1 = document.querySelectorAll('[data-transform1]');
+      const scale3d = document.querySelectorAll('.scale3d');
+      const slider1 = document.querySelectorAll('input[type="range"]')[1];
+
+      slider1.addEventListener('input', () => {
+        boxes1.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: scale${box.getAttribute('data-transform1').toUpperCase()}(${
+              slider1.value
+            })`
+          );
+        });
+        scale3d.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: scale3d(${slider1.value}, ${slider1.value}, ${slider1.value})`
+          );
+        });
+      });
+
+      const boxes2 = document.querySelectorAll('[data-transform2]');
+      const translate3d = document.querySelectorAll('.translate3d');
+      const slider2 = document.querySelectorAll('input[type="range"]')[2];
+
+      slider2.addEventListener('input', () => {
+        boxes2.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: translate${box.getAttribute('data-transform2').toUpperCase()}(${
+              slider2.value
+            }px)`
+          );
+        });
+        translate3d.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: translate3d(${slider2.value}px, ${slider2.value}px, ${slider2.value}px)`
+          );
+        });
+      });
+
+      const boxes3 = document.querySelectorAll('[data-transform3]');
+      const slider3 = document.querySelectorAll('input[type="range"]')[3];
+
+      slider3.addEventListener('input', () => {
+        boxes3.forEach(box => {
+          box.setAttribute(
+            'style',
+            `transform: skew${box.getAttribute('data-transform3').toUpperCase()}(${
+              slider3.value
+            }deg)`
+          );
+        });
+      });
+
+      function RangeDisplay( input ) {
+        this.input = input;
+        this.output = document.createElement('span');
+        this.output.className = 'range-display';
+        this.units = this.input.getAttribute('data-units') || '';
+        // events
+        var onChange = this.update.bind( this );
+        this.input.addEventListener( 'change', onChange );
+        this.input.addEventListener( 'input', onChange );
+        // set initial output
+        this.update();
+        this.input.parentNode.appendChild( this.output );
+      }
+
+      RangeDisplay.prototype.update = function() {
+        this.output.textContent = this.input.value + this.units;
+      };
+
+      var ranges = document.querySelectorAll('input[type="range"]');
+      for ( var i=4; i < ranges.length; i++ ) {
+        new RangeDisplay( ranges[i] );
+      }
+
+      var scene = document.querySelector('.scene');
+      var cube = document.querySelector('.cube');
+      var originX = 50;
+      var originY = 50;
+      function updatePerspectiveOrigin() {
+        scene.style.perspectiveOrigin = originX + '% ' + originY + '%';
+      }
+
+      var perspectiveRange = document.querySelector('.perspective-range');
+      var perspectiveDisplay = perspectiveRange.parentNode.querySelector('.range-display');
+      perspectiveRange.onchange = perspectiveRange.oninput = function() {
+        var value = perspectiveRange.value + 'px';
+        // set to none at max
+        if ( value == '1000px' ) {
+          value = 'none';
+          perspectiveDisplay.textContent = 'none';
+        }
+        scene.style.perspective = value;
+      };
+      perspectiveRange.onchange();
+
+      var originXRange = document.querySelector('.origin-x-range');
+      originXRange.onchange = originXRange.oninput = function() {
+        originX = originXRange.value;
+        updatePerspectiveOrigin();
+      };
+      originXRange.onchange();
+
+      var originYRange = document.querySelector('.origin-y-range');
+      originYRange.onchange = originYRange.oninput = function() {
+        originY = originYRange.value;
+        updatePerspectiveOrigin();
+      };
+      originYRange.onchange();
+
+      var spinCubeCheckbox = document.querySelector('.spin-cube-checkbox');
+      spinCubeCheckbox.onchange = function() {
+        cube.classList.toggle( 'is-spinning', spinCubeCheckbox.checked );
+      };
+      spinCubeCheckbox.onchange();
+
+      var backfaceCheckbox = document.querySelector('.backface-checkbox');
+      backfaceCheckbox.onchange = function() {
+        cube.classList.toggle( 'is-backface-hidden', !backfaceCheckbox.checked );
+      };
+    </script>
+  </body>
+</html>
