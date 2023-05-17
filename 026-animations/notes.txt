@@ -1,0 +1,198 @@
+@keyframes #
+
+Now you know what a keyframe is, that knowledge should help you understand how the CSS @keyframes rule works. Here is a basic rule with two states.
+
+@keyframes my-animation {
+	from {
+		transform: translateY(20px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+
+The first part to note is the custom ident (custom identifier)—or in more human terms, the name of the keyframes rule.
+This rule's identifier is my-animation. The custom identifier works like a function name, lets you reference the keyframes rule elsewhere in your CSS code.
+
+These identifiers are case-sensitive.
+
+Inside the keyframes rule, from and to are keywords that represent 0% and 100%,
+which are the start of the animation and end. You could re-create the same rule like this:
+
+@keyframes my-animation {
+	0% {
+		transform: translateY(20px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+==============================================================================================================================
+
+The animation properties #
+
+
+animation-duration #
+
+.my-element {
+	animation-duration: 10s;
+}
+
+The animation-duration property defines how long the @keyframes timeline should be.
+It should be a time value. It defaults to 0 seconds, which means the animation still runs, but it'll be too quick for you to see.
+You can't add negative time values.
+
+==================================================================================
+
+animation-timing-function #
+
+To help recreate natural motion in animation, you can use timing functions that calculate the speed of an animation at each point.
+Calculated values are often curved, making the animation run at variable speeds over the course of animation-duration, and if a value is 
+calculated beyond that of the value defined in @keyframes, make the element appear to bounce.
+
+There are several keywords available as presets in CSS, which are used as the value for animation-timing-function: 
+linear, ease, ease-in, ease-out, ease-in-out.
+
+.my-element {
+	animation-timing-function: ease-in-out;
+}
+
+
+Values appear to curve with easing functions because easing is calculated using a bézier curve, which is used to model velocity.
+Each of the timing function keywords, such as ease, reference a pre-defined bézier curve.
+In CSS, you can define a bézier curve directly, using the cubic-bezier() function, which accepts four number values: x1, y1, x2, y2.
+
+.my-element {
+	animation-timing-function: cubic-bezier(.42, 0, .58, 1);
+}
+
+The steps easing function #
+
+Sometimes you might want more granular control of your animation, and instead of moving along a curve, you want to move in intervals instead.
+The steps() easing function lets you break the timeline into defined, equal intervals.
+
+.my-element {
+	animation-timing-function: steps(10, end);
+}
+
+The first argument is how many steps. If steps are defined as 10 and there are 10 keyframes, each keyframe will play in sequence for the exact 
+amount of time, with no transition between states. If there are not enough keyframes for the steps, steps between keyframes are added depending 
+on the second argument.
+
+
+The second argument is the direction. If it's set to end, which is the default, the steps finish at the end of your timeline.
+If it is set to start, the first step of your animation completes as soon as it starts, which means it ends one step earlier than end.
+
+
+
+==================================================================================
+
+animation-iteration-count #
+
+.my-element {
+	animation-iteration-count: 10;
+}
+
+The animation-iteration-count property defines how many times the @keyframes timeline should run.
+By default, this is 1, which means that when the animation reaches the end of your timeline, it will stop at the end.
+The number can't be a negative number.
+
+
+You can use the infinite keyword which will loop your animation.
+
+==================================================================================
+
+animation-direction #
+
+.my-element {
+	animation-direction: reverse;
+}
+
+
+You can set which direction the timeline runs over your keyframes with animation-direction:
+
+normal ==> the default value, which is forwards.
+reverse ==> runs backwards over your timeline.
+alternate ==> for each animation iteration, the timeline will run forwards or backwards in sequence.
+alternate-reverse ==> the reverse of alternate.
+
+==================================================================================
+
+animation-delay #
+
+.my-element {
+	animation-delay: 5s;
+}
+
+The animation-delay property defines how long to wait before starting the animation. Like the animation-duration property, this accepts a time value.
+
+Unlike the animation-duration property, you can define this as a negative value.
+If you set a negative value, the timeline in your @keyframes will start at that point.
+For example, if your animation is 10 seconds long and you set animation-delay to -5s, it will start from half-way along your timeline.
+
+==================================================================================
+
+animation-play-state #
+
+.my-element:hover {
+	animation-play-state: paused;
+}
+
+
+The animation-play-state property allows you to play and pause the animation.
+The default value is running and if you set it to paused, it will pause the animation.
+
+
+==================================================================================
+
+
+animation-fill-mode #
+
+The animation-fill-mode property defines which values in your @keyframes timeline persist before the animation starts or after it ends.
+The default value is none which means when the animation is complete, the values in your timeline are discarded. Other options are:
+
+forwards ==> The last keyframe will persist, based on the animation direction.
+backwards ==> The first keyframe will persist, based on the animation direction.
+both ==> follows the rules for both forwards and backwards.
+
+
+==================================================================================
+
+The animation shorthand #
+
+Instead of defining all the properties separately, you can define them in an animation shorthand,
+which lets you define the animation properties in the following order:
+
+animation-name
+animation-duration
+animation-timing-function
+animation-delay
+animation-iteration-count
+animation-direction
+animation-fill-mode
+animation-play-state
+
+.my-element {
+	animation: my-animation 10s ease-in-out 1s infinite forwards forwards running;
+}
+
+==============================================================================================================================
+
+Considerations when working with animation #
+
+Users can define in their operating system that they prefer to reduce motion experienced when they interact with applications and websites.
+This preference can be detected using the prefers-reduced-motion media query.
+
+@media (prefers-reduced-motion) {
+  .my-autoplaying-animation {
+    animation-play-state: paused;
+  }
+}
+
+More - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+
+https://web.dev/prefers-reduced-motion/
+
+
+

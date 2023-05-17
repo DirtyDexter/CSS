@@ -1,0 +1,11 @@
+https://web.dev/learn/css/animations/
+
+https://cubic-bezier.com/#.25,.1,.25,1
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+
+https://web.dev/prefers-reduced-motion/
+
+https://stackoverflow.com/questions/60686489/what-purpose-does-void-element-offsetwidth-serve

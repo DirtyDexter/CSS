@@ -1,0 +1,466 @@
+<html>
+  <head>
+    <style>
+      .pulser {
+        width: 50px;
+        height: 50px;
+        background-color: rebeccapurple;
+        border-radius: 50%;
+        position: relative;
+        margin: 1rem;
+      }
+
+      .pulser::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: blueviolet;
+        border-radius: 50%;
+      }
+
+      .pulser::after {
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.4;
+        }
+      }
+
+      .grower {
+        animation-name: grow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes grow {
+        0% {
+          transform: scaleX(1);
+        }
+        50% {
+          transform: scaleX(1.8);
+          background: darkturquoise;
+        }
+      }
+
+      /* Decorative styles */
+      .grower {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      label {
+        display: block;
+      }
+
+      .demo {
+        animation: move;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(300px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+
+      /* presentational styles */
+      .demo {
+        width: 50px;
+        height: 50px;
+        background: royalblue;
+      }
+
+      .animate {
+        animation-name: grow2;
+        animation-duration: 1s;
+        animation-iteration-count: 5;
+        animation-timing-function: ease;
+      }
+
+      @keyframes grow2 {
+        0% {
+          transform: scaleX(1.1);
+        }
+        50% {
+          transform: scaleX(1.8);
+          background: darkturquoise;
+        }
+      }
+
+      /* Decorative styles */
+      .grower2 {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .grower3.animated {
+        animation-name: grow3;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes grow3 {
+        0% {
+          transform: scaleX(1);
+        }
+        25% {
+          background: darkturquoise;
+        }
+        50% {
+          background: hotpink;
+        }
+        75% {
+          background: purple;
+          transform: scaleX(1.8);
+        }
+        100% {
+          background: lightseagreen;
+        }
+      }
+
+      /* Decorative styles */
+      .grower3 {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .grower4.animated {
+        animation-name: grow4;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes grow4 {
+        0% {
+          transform: scaleX(1);
+        }
+        25% {
+          background: darkturquoise;
+        }
+        50% {
+          background: hotpink;
+        }
+        75% {
+          background: purple;
+          transform: scaleX(1.8);
+        }
+        100% {
+          background: lightseagreen;
+        }
+      }
+
+      /* Decorative styles */
+      .grower4 {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .grower5 {
+        animation-name: grow5;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      @keyframes grow5 {
+        0% {
+          transform: scaleX(1.1);
+        }
+        50% {
+          transform: scaleX(1.8);
+          background: darkturquoise;
+        }
+      }
+
+      .grower5:hover {
+        animation-play-state: paused;
+        cursor: wait;
+      }
+
+      /* Decorative styles */
+      .grower5 {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .grower6.animated {
+        animation-name: grow6;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+      }
+
+      @keyframes grow6 {
+        0% {
+          transform: scaleX(1);
+        }
+        25% {
+          background: darkturquoise;
+        }
+        50% {
+          background: hotpink;
+        }
+        75% {
+          background: purple;
+          transform: scaleX(1.8);
+        }
+        100% {
+          background: dodgerblue;
+        }
+      }
+
+      /* Decorative styles */
+      .grower6 {
+        width: 200px;
+        height: 80px;
+        background: lightseagreen;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pulser"></div>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>Named animaton timing functions</h1>
+          <figure class="callout">
+            <p>
+              Use the dropdown to change timing function to see how much they affect the
+              overall animation.
+            </p>
+          </figure>
+          <label>
+            Change timing function
+            <select>
+              <option>linear</option>
+              <option>ease</option>
+              <option>ease-in</option>
+              <option>ease-out</option>
+              <option>ease-in-out</option>
+            </select>
+          </label>
+          <div class="grower"></div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>Animation steps</h1>
+          <figure class="callout">
+            <p>
+              Switch the toggle on to enable the <code>steps</code> timing function.
+              Notice how even though there are only two keyframes, 10 steps are created
+              which results in staggered effect.
+            </p>
+          </figure>
+          <label class="toggle" for="toggle-element">
+            <span class="toggle__label">Turn steps on</span>
+            <input type="checkbox" role="switch" class="toggle__element" id="toggle-element" />
+            <div class="toggle__decor" aria-hidden="true">
+              <div class="toggle__thumb"></div>
+            </div>
+          </label>
+          <div class="demo"></div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <article>
+        <h1>Animation iteration count</h1>
+        <div class="flow">
+          <div class="grower2 animate"></div>
+          <button>Restart</button>
+        </div>
+      </article>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1><code>animation-direction</code></h1>
+          <figure class="callout">
+            <p>
+              Use the dropdown to change the direction of the animation.
+            </p>
+          </figure>
+          <label>
+            Change direction
+            <select>
+              <option>normal</option>
+              <option>reverse</option>
+              <option>alternate</option>
+              <option>alternate-reverse</option>
+            </select>
+          </label>
+          <div class="grower3 animated"></div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1><code>animation-delay</code></h1>
+          <figure class="callout">
+            <p>
+              Use the dropdown to change the delay of the animation.
+            </p>
+          </figure>
+          <label>
+            Change delay
+            <select>
+              <option>0s</option>  
+              <option>2s</option>
+              <option>5s</option>
+              <option>-5s</option>
+    
+            </select>
+          </label>
+          <div class="grower4 animated"></div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>Animation play state</h1>
+          <figure class="callout">
+            <p>Hover the animating element to pause the animation.</p>
+          </figure>
+          <div class="grower5"></div>
+        </article>
+      </div>
+    </main>
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1><code>animation-fill-mode</code></h1>
+          <figure class="callout">
+            <p>
+              Use the dropdown to change the fill mode of the animation.
+            </p>
+          </figure>
+          <label>
+            Change fill mode
+            <select>
+              <option>None</option>
+              <option>forwards</option>
+              <option>backwards</option>
+              <option>both</option>
+    
+            </select>
+          </label>
+          <div class="grower6 animated"></div>
+        </article>
+      </div>
+    </main>
+    <script>
+      const grower = document.querySelector('.grower');
+      const select = document.querySelector('select');
+
+      select.addEventListener('change', ({target}) => {
+        grower.style.animationTimingFunction = target.value;
+      });
+
+      const toggle = document.querySelector('#toggle-element');
+      const demo = document.querySelector('.demo');
+
+      toggle.addEventListener('change', ({target}) => {
+        demo.style.animationTimingFunction = target.checked ? 'steps(10, end)' : 'linear';
+      });
+
+      const button = document.querySelector('button');
+      const grower2 = document.querySelector('.grower2');
+
+      button.addEventListener('click', () => {
+        
+        grower2.classList.remove('animate');
+        
+        void grower2.offsetWidth;
+        
+        grower2.classList.add('animate');
+      });
+
+      const grower3 = document.querySelector(".grower3");
+      const select1 = document.querySelectorAll("select")[1];
+
+      select1.addEventListener("change", ({ target }) => {
+        grower3.style.animationDirection = target.value;
+
+        grower3.classList.remove('animated');
+        
+        void grower3.offsetWidth;
+        
+        grower3.classList.add('animated');
+      });
+
+      const grower4 = document.querySelector(".grower4");
+      const select2 = document.querySelectorAll("select")[2];
+
+      select2.addEventListener("change", ({ target }) => {
+        grower4.style.animationDelay = target.value;
+          
+        grower4.classList.remove('animated');
+        
+        void grower4.offsetWidth;
+        
+        grower4.classList.add('animated');
+      });
+
+      const grower6 = document.querySelector(".grower6");
+      const select3 = document.querySelectorAll("select")[3];
+
+      select3.addEventListener("change", ({ target }) => {
+        grower6.style.animationFillMode = target.value;
+          
+        grower6.classList.remove('animated');
+        
+        void grower6.offsetWidth;
+        
+        grower6.classList.add('animated');
+      });
+
+
+    </script>
+  </body>
+</html>
