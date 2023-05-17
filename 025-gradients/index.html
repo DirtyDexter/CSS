@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <style>
+      .box {
+        width: 250px;
+        height: 250px;
+        display: inline-block;
+        margin: 1rem;
+        border: 1px solid;
+      }
+      .mix {
+        background: linear-gradient(-45deg, blue -30%, transparent 80%), linear-gradient(45deg, darkred 20%, crimson, darkorange 60%, gold, bisque);
+      }
+      .repeat {
+        background: repeating-linear-gradient(
+          45deg,
+          red,
+          red 30px,
+          white 30px,
+          white 60px,
+          blue 60px,
+          blue 90px
+        );
+      }
+      .pie {
+        background: conic-gradient(gold 20deg, lightcoral 20deg 190deg, cyan 190deg 220deg, plum 220deg 320deg, steelblue 320deg);
+        border-radius: 50%;
+      }
+      .conic {
+        background: conic-gradient(from 10deg at 30% 40%, white, black);
+      }
+      .radial {
+        background: radial-gradient(at 50% 0%, darkred 20%, crimson, darkorange 60%, gold, bisque);
+      }
+      .multipos-stops {
+        background: linear-gradient(to left, lime 20%, red 30%, red 45%, cyan 55%, cyan 70%, yellow 80%);
+        background: linear-gradient(to left, lime 20%, red 30% 45%, cyan 55% 70%, yellow 80%);
+      }
+      .multipos-stops2 {
+        background: linear-gradient(to left, lime 25%, red 25%, red 50%, cyan 50%, cyan 75%, yellow 75%);
+        background: linear-gradient(to left, lime 25%, red 25% 50%, cyan 50% 75%, yellow 75%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box mix"></div>
+    <div class="box radial"></div>
+    <div class="box repeat"></div>
+    <div class="box conic"></div>
+    <div class="box pie"></div>
+    <div class="box multipos-stops"></div>
+    <div class="box multipos-stops2"></div>
+  </body>
+</html>
