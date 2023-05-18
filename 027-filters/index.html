@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <style>
+      .demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        gap: 1.5rem;
+        margin: 2em 0;
+      }
+
+      .demo p {
+        margin-top: 0.5rem;
+      }
+
+      .demo img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+      }
+
+      .my-element-1 {
+        filter: blur(0.2em);
+      }
+
+      .my-element-2 {
+        filter: brightness(80%);
+      }
+
+      .my-element-3 {
+        filter: contrast(160%);
+      }
+
+      .my-element-4 {
+        filter: grayscale(80%);
+      }
+
+      .my-element-5 {
+        filter: invert(1);
+      }
+
+      .my-element-6 {
+        filter: opacity(0.3);
+      }
+
+      .my-filter-7 {
+        filter: saturate(155%);
+      }
+
+      .my-element-8 {
+        filter: sepia(70%);
+      }
+
+      .my-element-9 {
+        filter: hue-rotate(120deg);
+      }
+
+      .my-element-10 {
+        filter: drop-shadow(5px 5px 10px orange);
+      }
+
+      .my-element-11 {
+        filter: url(#pink-filter);
+      }
+
+      .bd-filter h1 {
+        padding: 1.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 1;
+        background: hsl(0 100% 100% / 55%);
+        backdrop-filter: blur(10px);
+      }
+
+      .bd-filter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+
+      .bd-filter img {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="demo">
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" />
+        <p>No filter</p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-1" />
+        <p><code>filter: blur(0.2em);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-2" />
+        <p><code>filter: brightness(80%);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-3" />
+        <p><code>filter: contrast(160%);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-4" />
+        <p><code>filter: grayscale(80%);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-5" />
+        <p><code>filter: invert(1);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-6" />
+        <p><code>filter: opacity(0.3);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-7" />
+        <p><code>filter: saturate(155%);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-8" />
+        <p><code>filter: sepia(70%);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-9" />
+        <p><code>filter: hue-rotate(120deg);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-10" />
+        <p><code>filter: drop-shadow(5px 5px 10px orange);</code></p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/500X300" alt="Diagonal checkboard tiles" class="my-element-11" />
+        <p><code>filter: url(#pink-filter);</code></p>
+      </div>
+    </div>
+    <div>
+      <div class="bd-filter">
+        <h1>Check out these tiles</h1>
+        <img src="https://source.unsplash.com/dPklt2rBgDw/1500X700" alt="Diagonal checkboard tiles" />
+      </div>
+      <p><code>backdrop-filter: blur(10px);</code></p>
+    </div>
+    <!-- SVG Filter effect -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="pink-filter" x="0" y="0" width="100%" height="100%">
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="1" intercept="0.5"></feFuncR>
+            <feFuncG type="linear" slope="0.5" intercept="0.5"></feFuncG>
+            <feFuncB type="linear" slope="0" intercept="1"></feFuncB>
+          </feComponentTransfer>
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>
