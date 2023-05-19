@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: row;
+        gap: 5rem;
+        flex-wrap: wrap;
+      }
+      .box {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        margin-top: 4px;
+        background: cornflowerblue;
+        opacity: 0.5;
+        transform: scale(1) rotate(0);
+      }
+
+      .square.has-transition {
+        transition: transform 750ms ease-in-out 0s;
+      }
+
+      .square:is(:hover, :focus) {
+        transform: scale(1.5) rotate(135deg);
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      .square2 {
+        width: 100px;
+        height: 100px;
+        margin: 8px;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color: white;
+
+        transition-property: box-shadow, transform;
+        transition-duration: 350ms;
+        transition-timing-function: ease;
+
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.24);
+      }
+
+      .square2:is(:hover, :focus) {
+        box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+        transform: translateY(-8px);
+      }
+
+      .emoji {
+        font-size: 8em;
+        filter: grayscale(100%);
+        transition: filter 450ms ease;
+      }
+
+      .emoji:is(:hover, :focus) {
+        filter: grayscale(0%) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.5));
+      }
+
+      .wrapper2 {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 300px;
+        max-height: 300px;
+        overflow: auto;
+        padding: 0;
+      }
+      
+      .bubble {
+        width: 50px;
+        height: 50px;
+        background-color: aquamarine;
+        border-radius: 100%;
+        text-align: center;
+        padding: 16px;
+        font-size: 2em;
+        margin: 2px;
+
+        /* When not hovering, this transition is active */
+        transition: all 5s ease-in 200ms;
+      }
+
+      .bubble:is(:hover, :focus) {
+        background-color: paleturquoise;
+        transform: scale(1.6);
+        opacity: 0.6;
+
+        /* This transition is active on hover */
+        transition: transform 150ms cubic-bezier(0.5, 1.75, 0.75, 1.25);
+      }
+
+      .wrapper3 {
+        display: flex;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .menu-item {
+        width: 150px;
+        max-height: 100px;
+        background-color: darkslateblue;
+        color: white;
+        border-radius: 8px;
+        text-align: center;
+        padding: 8px;
+        margin-bottom: 4px;
+
+        transform-origin: 0 0;
+        transform: translateX(-100px);
+        opacity: 0;
+
+        transition-property: transform, opacity;
+        transition-duration: 1s;
+        transition-timing-function: ease;
+      }
+
+      .wrapper3:is(:hover, :focus) .menu-item {
+        transform: translateX(0px);
+        opacity: 100%;
+      }
+
+      .wrapper3 .menu-item:nth-of-type(1) {
+        transition-delay: 0ms;
+      }
+
+      .wrapper3 .menu-item:nth-of-type(2) {
+        transition-delay: 100ms;
+      }
+
+      .wrapper3 .menu-item:nth-of-type(3) {
+        transition-delay: 200ms;
+      }
+
+      .wrapper3 .menu-item:nth-of-type(4) {
+        transition-delay: 300ms;
+      }
+
+      .wrapper3 .menu-item:nth-of-type(5) {
+        transition-delay: 400ms;
+      }
+
+      .wrapper3 p {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div>
+          <p>Transition ❌</p>
+          <div class="square" tabindex="0"></div>
+        </div>
+        <div>
+          <p>Transition ✔️</p>
+          <div class="square has-transition" tabindex="0"></div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="square2" tabindex="0">😐</div>
+        <div class="square2" tabindex="0">🙂</div>
+        <div class="square2" tabindex="0">😄</div>
+      </div>
+      <div class="wrapper">
+        <div class="emoji" tabindex="0">🐶</div>
+        <div class="emoji" tabindex="0">🐱</div>
+        <div class="emoji" tabindex="0">🐢</div>
+      </div>
+      <div class="wrapper2">
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+        <div class="bubble" tabindex="0"></div>
+      </div>
+      <div class="wrapper3" tabindex="0">
+        <p>Hover to show menu</p>
+        <div class="menu-item">Menu item 1</div>
+        <div class="menu-item">Menu item 2</div>
+        <div class="menu-item">Menu item 3</div>
+        <div class="menu-item">Menu item 4</div>
+        <div class="menu-item">Menu item 5</div>
+      </div>
+    </div>
+  </body>
+</html>

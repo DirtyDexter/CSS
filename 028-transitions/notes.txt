@@ -1,0 +1,101 @@
+
+Transition properties #
+
+
+transition-property #
+
+The transition-property property specifies which style(s) to transition.
+
+.my-element {
+  transition-property: background-color;
+}
+
+The transition-property accepts one or more CSS property names in a comma-separated list.
+
+Optionally, you may use transition-property: all to indicate that every property should transition.
+
+=======================================================================================================
+
+
+transition-duration #
+
+The transition-duration property is used to define the length of time that a transition will take to complete.
+
+transition-duration accepts time units, either in seconds (s) or milliseconds (ms) and defaults to 0s.
+
+.square.td-middling {
+  transition-duration: 800ms;
+}
+
+
+=======================================================================================================
+
+transition-timing-function #
+
+Use the transition-timing-function property to vary the speed of a CSS transition over the course of the transition-duration.
+
+By default, CSS will transition your elements at a constant speed (transition-timing-function: linear).
+Linear transitions can end up looking somewhat artificial, though: in real life, objects have weight and can't stop and start instantly.
+Easing into or out of a transition can make your transitions more lively and natural.
+
+.square.ttf-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+
+
+=======================================================================================================
+
+transition-delay #
+
+Use the transition-delay property to specify the time at which a transition will start.
+If transition-duration is not specified, transitions will start instantly because the default value is 0s.
+This property accepts a time unit, for example seconds (s) or milliseconds (ms).
+
+.rectangle:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+This property is useful for staggering transitions, achieved by setting a longer transition-delay for each subsequent element in a group.
+
+=======================================================================================================
+
+
+shorthand: transition #
+
+.longhand {
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+.shorthand {
+  transition: transform 300ms ease-in-out 0s;
+}
+
+=======================================================================================================
+
+.my-element {
+  background: red;
+
+  /* This transition is applied on the "exit" transition */
+  transition: background 2000ms ease-in;
+}
+
+.my-element:hover {
+  background: blue;
+
+  /* This transition is applied on the "enter" transition */
+  transition: background 150ms ease;
+}
+
+=======================================================================================================
+
+Performance considerations #
+
+When working with CSS transitions, you may encounter performance issues if you add transitions for certain CSS properties.
+For example, when properties such as width or height change, they push content around on the rest of the page.
+This forces CSS to calculate new positions for every affected element for each frame of the transition.
+When possible, we recommend using properties like transform and opacity instead.
+

@@ -1,0 +1,11 @@
+https://web.dev/learn/css/transitions/
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+
+https://web.dev/prefers-reduced-motion/
+
+https://web.dev/animations-guide/
+
+
+https://web.dev/animations-overview/#pipeline
+
