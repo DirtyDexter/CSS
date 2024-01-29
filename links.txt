@@ -22,5 +22,12 @@ https://blog.stackademic.com/the-best-of-2023s-css-ui-features-7448c6855c14
 
 https://developer.chrome.com/blog/whats-new-css-ui-2023/
 
+=============================================================================
+
+Masonry layout 
+https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
+
+https://stackblitz.com/edit/stackblitz-starters-tkrdvy?file=src%2Fmasonry.pipe.ts
 
 
+============================================================================================

@@ -6,3 +6,6 @@ https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/
 
 https://gridbyexample.com/
 
+https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
+
+https://stackblitz.com/edit/stackblitz-starters-tkrdvy?file=src%2Fmasonry.pipe.ts
