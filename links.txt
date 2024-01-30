@@ -31,3 +31,17 @@ https://stackblitz.com/edit/stackblitz-starters-tkrdvy?file=src%2Fmasonry.pipe.t
 
 
 ============================================================================================
+
+
+:hover, :focus, :active
+https://spring.academy/courses/spring-boot/lessons/spring-boot-rest-app-intro
+
+https://stackoverflow.com/questions/1677990/what-is-the-difference-between-focus-and-active
+
+:focus-visible
+https://mayashavin.com/articles/focus-vs-focus-visible-for-accessibility
+
+=========================================================================================================
+
+Layout without media query
+https://medium.com/@bogdanfromkyiv/responsive-layouts-without-media-queries-a859911790fc
